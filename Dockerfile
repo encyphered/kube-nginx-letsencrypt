@@ -1,6 +1,6 @@
-FROM fedora:24
+FROM alpine:3.9
 
-RUN dnf install jq certbot -y && dnf clean all
+RUN apk update && apk add bash curl jq python certbot
 RUN mkdir /etc/letsencrypt
 
 CMD ["/entrypoint.sh"]
